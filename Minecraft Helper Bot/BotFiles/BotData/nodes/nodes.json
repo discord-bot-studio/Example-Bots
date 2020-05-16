@@ -1,0 +1,2962 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "mobinfo",
+      "guid": "0df2d01d-1089-4c6a-abd8-46e3e4bfa51b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3331b3d3-7d65-4400-84e8-d57c5c0639a3"
+          ]
+        }
+      ],
+      "x": 24,
+      "y": 244,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "find wanted mob",
+      "guid": "bc67b36b-6520-4d75-8678-36eaf7f6826f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "78d231f1-dd92-4591-a3f4-e7cbef3afe01"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3331b3d3-7d65-4400-84e8-d57c5c0639a3"
+        }
+      ],
+      "x": 24,
+      "y": 450,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "mobinfowantedmob",
+        "%%mobinfowantedmob%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set wanted mob var",
+      "guid": "3331b3d3-7d65-4400-84e8-d57c5c0639a3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "bc67b36b-6520-4d75-8678-36eaf7f6826f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0df2d01d-1089-4c6a-abd8-46e3e4bfa51b"
+        }
+      ],
+      "x": 22,
+      "y": 320,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "mobinfowantedmob",
+        "Text",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "setgame",
+      "guid": "6ad13f6f-d61a-468d-aff2-6cbe2fa3ad8c",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "c2f3f585-7396-41fa-a62c-3c2d30073877"
+          ]
+        }
+      ],
+      "x": 1196,
+      "y": 149,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "get setgame command author",
+      "guid": "c2f3f585-7396-41fa-a62c-3c2d30073877",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "732bc62a-51a9-4a27-b34e-45d1ee198964"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6ad13f6f-d61a-468d-aff2-6cbe2fa3ad8c"
+        }
+      ],
+      "x": 1197,
+      "y": 226,
+      "rtype": "Variable",
+      "rsubtype": "Get Command Author",
+      "formdata": [
+        "setgamecommandauthor",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "store setgame command author",
+      "guid": "732bc62a-51a9-4a27-b34e-45d1ee198964",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "82696f80-4a58-465a-8bdf-b134e3877625"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c2f3f585-7396-41fa-a62c-3c2d30073877"
+        }
+      ],
+      "x": 1196,
+      "y": 357,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "setgamecommandauthor",
+        "%%setgamecommandauthor%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "check if command author = dev",
+      "guid": "82696f80-4a58-465a-8bdf-b134e3877625",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "79a3c103-43fe-4aa5-a316-bc3a958aa7c7"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "65fb7025-ea06-48af-8f98-9a8af49e4728"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "732bc62a-51a9-4a27-b34e-45d1ee198964"
+        }
+      ],
+      "x": 1381,
+      "y": 300,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "setgamecommandauthor",
+        "equal to",
+        "529073180107735048"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "not dev error",
+      "guid": "65fb7025-ea06-48af-8f98-9a8af49e4728",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "82696f80-4a58-465a-8bdf-b134e3877625"
+        }
+      ],
+      "x": 1582,
+      "y": 411,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "This command can only be used bot the bots maker!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "store game",
+      "guid": "79a3c103-43fe-4aa5-a316-bc3a958aa7c7",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b3832a42-1566-4280-a2ac-6a92c77adec0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "82696f80-4a58-465a-8bdf-b134e3877625"
+        }
+      ],
+      "x": 1581,
+      "y": 293,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "setgamegame",
+        "Text",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "setbotgame",
+      "guid": "b3832a42-1566-4280-a2ac-6a92c77adec0",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "fed0535d-a469-491a-aa3b-ef8df696e2fd"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "79a3c103-43fe-4aa5-a316-bc3a958aa7c7"
+        }
+      ],
+      "x": 1761,
+      "y": 289,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Bot Game",
+      "formdata": [
+        "%%setgamegame%%"
+      ],
+      "formnames": [
+        "game"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "botgame set",
+      "guid": "fed0535d-a469-491a-aa3b-ef8df696e2fd",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b3832a42-1566-4280-a2ac-6a92c77adec0"
+        }
+      ],
+      "x": 1934,
+      "y": 282,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Successfully set game to %%setgamegame%%"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "8e4851d4-a4ad-4f0b-88a3-b1ed7e50b7d2",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "bae7a6af-9645-4349-9df3-1a1c6b26d13a"
+          ]
+        }
+      ],
+      "x": 1046,
+      "y": 529,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "help msg",
+      "guid": "d593ebdc-eba3-442d-b028-0f713ab8b0f0",
+      "embedfields": [
+        {
+          "name": "MC Commands",
+          "value": "-gamepedia\n-mobinfo [MOBNAME] (do mc!mobinfo for a list of \n mobs)\n-randomseed",
+          "inline": "false"
+        },
+        {
+          "name": "Other Commands",
+          "value": "-invite",
+          "inline": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "85978e3c-9660-4a51-bdf4-8aff6326d98d"
+        }
+      ],
+      "x": 1350,
+      "y": 499,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "$$CommandChannel$$",
+        "49B000",
+        "Help",
+        "",
+        "MC Helper Bot",
+        "https://i.imgur.com/Ecp2bcN.png",
+        "",
+        "MC Helper Bot is a bot is a bot made to help out with Minecraft\n\nMC Helper Bot also has an economy feature! do \"mc!help economy\" (without quotes) for help with setting up the economy.",
+        "https://i.imgur.com/Ecp2bcN.png",
+        "",
+        "Commands sorted A-Z",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "mobinfo list",
+      "guid": "cb03d15d-da6f-43b7-94ec-d222f5a4735e",
+      "embedfields": [
+        {
+          "name": "Passive",
+          "value": "bat, cat, chicken, cod, cow, donkey, fox, horse, mooshroom, mule, ocelot, parrot, pig, pufferfish, rabbit, salmon, sheep, skeleton horse, snow golem, squid, tropical fish, turtle, villager, wandering trader",
+          "inline": "false"
+        },
+        {
+          "name": "Neutral",
+          "value": "bee, dolphin, iron golem, llama, panda, polar bear, wolf, enderman, spider, zombie pigman",
+          "inline": "false"
+        },
+        {
+          "name": "Hostile",
+          "value": "blaze, creeper, drowned, elder guardian, endermite, evoker, ghast, guardian, husk, magma cube, phantom, pillager, ravager, shulker, silver fish, skeleton, slime, stray, vex, vindicator, witch, wither skeleton, zombie",
+          "inline": "false"
+        },
+        {
+          "name": "Upcoming Mobs",
+          "value": "hoglin, piglin, strider, zoglin, zombified piglin",
+          "inline": "false"
+        },
+        {
+          "name": "Mobinfo Source",
+          "value": "https://minecraft.gamepedia.com/Mob",
+          "inline": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "78d231f1-dd92-4591-a3f4-e7cbef3afe01"
+        }
+      ],
+      "x": 182,
+      "y": 670,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "$$CommandChannel$$",
+        "49B000",
+        "Mobinfo List",
+        "",
+        "MC Helper Bot",
+        "https://i.imgur.com/Ecp2bcN.png",
+        "",
+        "List of mobs that you can get information about",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "invite",
+      "guid": "6b83f2cd-fe9c-4801-8dfc-02029a0261c2",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a406adc1-ea07-4159-b757-db8e15e6dc3a"
+          ]
+        }
+      ],
+      "x": 1019,
+      "y": 858
+    },
+    {
+      "type": "response",
+      "name": "invite msg",
+      "guid": "a406adc1-ea07-4159-b757-db8e15e6dc3a",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6b83f2cd-fe9c-4801-8dfc-02029a0261c2"
+        }
+      ],
+      "x": 1174,
+      "y": 824,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Want to invite MC Helper Bot in your server? Here is an invite link: https://discordapp.com/api/oauth2/authorize?client_id=699771063642619924&permissions=8&scope=bot"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get mobinfo row",
+      "guid": "78d231f1-dd92-4591-a3f4-e7cbef3afe01",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "ca204955-36fa-42af-848b-9ef8767885e2"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": [
+            "cb03d15d-da6f-43b7-94ec-d222f5a4735e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bc67b36b-6520-4d75-8678-36eaf7f6826f"
+        }
+      ],
+      "x": 27,
+      "y": 576,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "MC Helper Bot Mobinfo .csv",
+        "Mob",
+        "%%mobinfowantedmob%%",
+        "mobinforow"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "send mobinfo",
+      "guid": "ca204955-36fa-42af-848b-9ef8767885e2",
+      "embedfields": [
+        {
+          "name": "Health Points",
+          "value": "%%mobinforow[Health Points]%%",
+          "inline": "false"
+        },
+        {
+          "name": "Attack Strength",
+          "value": "%%mobinforow[Attack Strength]%%",
+          "inline": "false"
+        },
+        {
+          "name": "Behavior",
+          "value": "%%mobinforow[Behavior]%%",
+          "inline": "false"
+        },
+        {
+          "name": "Size",
+          "value": "%%mobinforow[Size]%%",
+          "inline": "false"
+        },
+        {
+          "name": "Source",
+          "value": "https://minecraft.gamepedia.com/Minecraft_Wiki",
+          "inline": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "78d231f1-dd92-4591-a3f4-e7cbef3afe01"
+        }
+      ],
+      "x": 183,
+      "y": 563,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "$$CommandChannel$$",
+        "49B000",
+        "%%mobinfowantedmob%% Info",
+        "",
+        "MC Helper Bot",
+        "https://i.imgur.com/Ecp2bcN.png",
+        "",
+        "%%mobinforow[Description]%%",
+        "%%mobinforow[Image]%%",
+        "",
+        "",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "randomseed",
+      "guid": "c4eddaf0-d034-470c-880d-aa687f3fee76",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "82d1818e-bd4d-4264-9754-7c5caa848266"
+          ]
+        }
+      ],
+      "x": 48,
+      "y": 792,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "generate number 1",
+      "guid": "82d1818e-bd4d-4264-9754-7c5caa848266",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "90fcce80-af04-4b80-a97f-abd722f41e8b"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c4eddaf0-d034-470c-880d-aa687f3fee76"
+        }
+      ],
+      "x": 50,
+      "y": 868,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "1",
+        "100000000000000",
+        "999999999999999"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "send rand seed",
+      "guid": "90fcce80-af04-4b80-a97f-abd722f41e8b",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "82d1818e-bd4d-4264-9754-7c5caa848266"
+        }
+      ],
+      "x": 202,
+      "y": 868,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "%%1%%"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "gamepedia",
+      "guid": "c2c75fe0-ae94-4de2-87ba-6618d927b28d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "ccdfc25c-a716-488c-9382-365d066f3e75"
+          ]
+        }
+      ],
+      "x": 426,
+      "y": 832
+    },
+    {
+      "type": "response",
+      "name": "send gamepedia link",
+      "guid": "ccdfc25c-a716-488c-9382-365d066f3e75",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c2c75fe0-ae94-4de2-87ba-6618d927b28d"
+        }
+      ],
+      "x": 577,
+      "y": 837,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Minecraft Gamepedia: https://minecraft.gamepedia.com"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "store help var",
+      "guid": "bae7a6af-9645-4349-9df3-1a1c6b26d13a",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "85978e3c-9660-4a51-bdf4-8aff6326d98d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8e4851d4-a4ad-4f0b-88a3-b1ed7e50b7d2"
+        }
+      ],
+      "x": 1048,
+      "y": 604,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "helporeconomyhelp",
+        "Text",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "check help var",
+      "guid": "85978e3c-9660-4a51-bdf4-8aff6326d98d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "5969343c-6921-485e-a817-ee832ab3a8b8"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "d593ebdc-eba3-442d-b028-0f713ab8b0f0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bae7a6af-9645-4349-9df3-1a1c6b26d13a"
+        }
+      ],
+      "x": 1198,
+      "y": 572,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "helporeconomyhelp",
+        "equal to",
+        "economy"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "economy help",
+      "guid": "5969343c-6921-485e-a817-ee832ab3a8b8",
+      "embedfields": [
+        {
+          "name": "Economy Commands",
+          "value": "-balance\n-mine\n-purchase (cost 5000 minecoins)\n-giveminecoins [AMOUNT] [USER]",
+          "inline": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "85978e3c-9660-4a51-bdf4-8aff6326d98d"
+        }
+      ],
+      "x": 1350,
+      "y": 602,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "$$CommandChannel$$",
+        "FFE91F",
+        "Economy Help",
+        "",
+        "MC Helper Bot",
+        "https://i.imgur.com/Ecp2bcN.png",
+        "",
+        "Minecraft helper bot has an economy feature!\nWith the economy feature users can mine for money, and purchase mobs. The goal is to collect as many mobs as possible. If you want to add extra value to collecting mobs you can create special roles for people who have collected a certain amount of mobs! You can earn minecoins by either using mc!mine to mine a random number of minecoins you can earn 75-250 minecoins each time you mine. You can also earn minecoins just be being active! You earn 5 minecoins per message. Every message you send there is a 1 in 1000 chance of a mob spawner spawning, if you encounter a mob spawner you will be rewarded 30 mobs!",
+        "https://static.planetminecraft.com/files/resource_media/screenshot/12545965-pack.png",
+        "",
+        "",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "mine",
+      "guid": "f0ba8722-3fde-4523-b928-eb0cb1e89496",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "9ceceb6e-1ad4-4875-b2dd-d5374b241764"
+          ]
+        }
+      ],
+      "x": 111,
+      "y": 1048
+    },
+    {
+      "type": "response",
+      "name": "gen minecoins made",
+      "guid": "9ceceb6e-1ad4-4875-b2dd-d5374b241764",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "1ea4176e-4199-494b-82e4-abfe918d92f7"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f0ba8722-3fde-4523-b928-eb0cb1e89496"
+        }
+      ],
+      "x": 114,
+      "y": 1125,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "randminecoins",
+        "75",
+        "250"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add minecoins",
+      "guid": "1ea4176e-4199-494b-82e4-abfe918d92f7",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8d79695d-18f8-40fe-a528-49eb18666607"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "9ceceb6e-1ad4-4875-b2dd-d5374b241764"
+        }
+      ],
+      "x": 267,
+      "y": 1147,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "+",
+        "%%randminecoins%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "mine msg",
+      "guid": "8d79695d-18f8-40fe-a528-49eb18666607",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1ea4176e-4199-494b-82e4-abfe918d92f7"
+        }
+      ],
+      "x": 419,
+      "y": 1147,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You went mining and sold the recources you found. You earned %%randminecoins%% minecoins"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "balance",
+      "guid": "27d2986c-291f-446b-b8c1-acfb080be969",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "5d322be4-21ea-422f-ad44-2bd7957b8720"
+          ]
+        }
+      ],
+      "x": 117,
+      "y": 1352
+    },
+    {
+      "type": "response",
+      "name": "get minecoin balance",
+      "guid": "5d322be4-21ea-422f-ad44-2bd7957b8720",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "65e29976-6629-4cce-a415-7b5b7a68e688"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "27d2986c-291f-446b-b8c1-acfb080be969"
+        }
+      ],
+      "x": 273,
+      "y": 1296,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "minecoinbalance",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "balance msg",
+      "guid": "d796730d-13e6-4ea2-b6bc-09002cfda499",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "65e29976-6629-4cce-a415-7b5b7a68e688"
+        }
+      ],
+      "x": 583,
+      "y": 1324,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You have %%minecoinbalance%% minecoin(s) and %%mobbalance%% mob(s)."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "purchase",
+      "guid": "57559463-35ef-4a2a-91d0-3418a54175e2",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3c407569-c352-4315-90b7-c255124fdfe7"
+          ]
+        }
+      ],
+      "x": 119,
+      "y": 1497,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "get rand mob",
+      "guid": "71662167-bb7a-482d-90fa-728b072846ec",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "edb185ca-12eb-49f0-9824-f12b50a42783"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c48c0d14-97d5-47b5-87bf-87104fdbe64f"
+        }
+      ],
+      "x": 633,
+      "y": 1470,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "randmobnum",
+        "1",
+        "61"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get ran mob spread",
+      "guid": "edb185ca-12eb-49f0-9824-f12b50a42783",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "040159fa-ffb6-407b-a008-cbe77c0cdf4a"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": [
+            "09c45901-8454-4e56-bb73-08f15dbc19a3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "71662167-bb7a-482d-90fa-728b072846ec"
+        }
+      ],
+      "x": 807,
+      "y": 1469,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "Purchasable Mobs - Sheet1.csv",
+        "Mob Number",
+        "%%randmobnum%%",
+        "randmobspread"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins > purchase price?",
+      "guid": "3c407569-c352-4315-90b7-c255124fdfe7",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "c48c0d14-97d5-47b5-87bf-87104fdbe64f"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "d57b1f34-fad2-40cf-af76-c7debd8077b3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "57559463-35ef-4a2a-91d0-3418a54175e2"
+        }
+      ],
+      "x": 289,
+      "y": 1474,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "greater than",
+        "4999"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "remove minecoins",
+      "guid": "c48c0d14-97d5-47b5-87bf-87104fdbe64f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "71662167-bb7a-482d-90fa-728b072846ec"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3c407569-c352-4315-90b7-c255124fdfe7"
+        }
+      ],
+      "x": 459,
+      "y": 1473,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "-",
+        "5000"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "not enough minecoins",
+      "guid": "d57b1f34-fad2-40cf-af76-c7debd8077b3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3c407569-c352-4315-90b7-c255124fdfe7"
+        }
+      ],
+      "x": 463,
+      "y": 1611,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You don't have enough minecoins! To purchase a mob it costs 5000 minecoins."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "purchase failed",
+      "guid": "09c45901-8454-4e56-bb73-08f15dbc19a3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8b3d8749-1d9c-4d19-80cc-af34e7cf4b19"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "edb185ca-12eb-49f0-9824-f12b50a42783"
+        }
+      ],
+      "x": 960,
+      "y": 1624,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "An unkown error has occured your 5000 minecoins have been returned."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "return minecoins",
+      "guid": "8b3d8749-1d9c-4d19-80cc-af34e7cf4b19",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "09c45901-8454-4e56-bb73-08f15dbc19a3"
+        }
+      ],
+      "x": 1117,
+      "y": 1628,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "+",
+        "5000"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "mob purchased",
+      "guid": "040159fa-ffb6-407b-a008-cbe77c0cdf4a",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f157a5f8-cb9e-49b0-8646-d9291f03718f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "edb185ca-12eb-49f0-9824-f12b50a42783"
+        }
+      ],
+      "x": 962,
+      "y": 1496,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You got a %%randmobspread[Mob]%%!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add mob to mob count",
+      "guid": "f157a5f8-cb9e-49b0-8646-d9291f03718f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "040159fa-ffb6-407b-a008-cbe77c0cdf4a"
+        }
+      ],
+      "x": 1117,
+      "y": 1501,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "mobsowned",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get mob balance",
+      "guid": "65e29976-6629-4cce-a415-7b5b7a68e688",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "d796730d-13e6-4ea2-b6bc-09002cfda499"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "5d322be4-21ea-422f-ad44-2bd7957b8720"
+        }
+      ],
+      "x": 427,
+      "y": 1298,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "mobsowned",
+        "mobbalance",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add or remove",
+      "guid": "54b9cc3a-23db-4015-8340-137a5bd01d05",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8989fedc-4633-4988-9225-28dbcc31a6f8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "885d4333-64a2-46eb-ae49-f47b081c2a24"
+        }
+      ],
+      "x": 138,
+      "y": 1973,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "minecoinsaddorremove",
+        "Text",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins add?",
+      "guid": "25f87dd6-cfd0-4424-8b7c-778d837b2c8a",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "d3aeda91-ebb3-4e27-bdc9-ee0bf02aab5c"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "e11b9ac8-0881-4b09-9dd4-8589c3e355fa"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "faa929ee-fd32-4b43-b297-1e24ddcb02cc"
+        }
+      ],
+      "x": 450,
+      "y": 2103,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "minecoinsaddorremove",
+        "equal to",
+        "add"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins remove?",
+      "guid": "e11b9ac8-0881-4b09-9dd4-8589c3e355fa",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "daa168cc-3de0-409f-9297-b1ff89a9e96f"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "63837248-f94f-4e8f-8602-83b1da6e56e1"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "25f87dd6-cfd0-4424-8b7c-778d837b2c8a"
+        }
+      ],
+      "x": 446,
+      "y": 2266,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "minecoinsaddorremove",
+        "equal to",
+        "remove"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "edit minecoins failed",
+      "guid": "63837248-f94f-4e8f-8602-83b1da6e56e1",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e11b9ac8-0881-4b09-9dd4-8589c3e355fa"
+        }
+      ],
+      "x": 452,
+      "y": 2435,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Failed to edit minecoins. Make sure you are using add or remove after mc!minecoins."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get amount",
+      "guid": "8989fedc-4633-4988-9225-28dbcc31a6f8",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "faa929ee-fd32-4b43-b297-1e24ddcb02cc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "54b9cc3a-23db-4015-8340-137a5bd01d05"
+        }
+      ],
+      "x": 291,
+      "y": 1971,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "numberofminecoins",
+        "Number",
+        "2"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get minecoins user",
+      "guid": "faa929ee-fd32-4b43-b297-1e24ddcb02cc",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "25f87dd6-cfd0-4424-8b7c-778d837b2c8a"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8989fedc-4633-4988-9225-28dbcc31a6f8"
+        }
+      ],
+      "x": 446,
+      "y": 1973,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "addremoveminecoinsuser",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins givin",
+      "guid": "127e0210-e59e-401d-88a2-72297c8e46f0",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d3aeda91-ebb3-4e27-bdc9-ee0bf02aab5c"
+        }
+      ],
+      "x": 758,
+      "y": 2167,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Succesfully gave <@%%addremoveminecoinsuser%%> %%numberofminecoins%% minecoins."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add mineoins to user",
+      "guid": "d3aeda91-ebb3-4e27-bdc9-ee0bf02aab5c",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "127e0210-e59e-401d-88a2-72297c8e46f0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "25f87dd6-cfd0-4424-8b7c-778d837b2c8a"
+        }
+      ],
+      "x": 605,
+      "y": 2140,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%addremoveminecoinsuser%%",
+        "userminecoins",
+        "+",
+        "%%numberofminecoins%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "remove minecoins2",
+      "guid": "daa168cc-3de0-409f-9297-b1ff89a9e96f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "f858a4a1-1868-4c1d-81e1-e17bd3f5fbdc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e11b9ac8-0881-4b09-9dd4-8589c3e355fa"
+        }
+      ],
+      "x": 601,
+      "y": 2292,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%addremoveminecoinsuser%%",
+        "userminecoins",
+        "-",
+        "%%numberofminecoins%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins removed",
+      "guid": "f858a4a1-1868-4c1d-81e1-e17bd3f5fbdc",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "daa168cc-3de0-409f-9297-b1ff89a9e96f"
+        }
+      ],
+      "x": 756,
+      "y": 2296,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Succesfully removed %%numberofminecoins%% from <@%%addremoveminecoinsuser%%> ."
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "status",
+      "guid": "f31cdfd5-4970-46bf-baaf-9760b6199b3c",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "d6306541-5512-44da-93b2-b347566d164b"
+          ]
+        }
+      ],
+      "x": 1482,
+      "y": 784
+    },
+    {
+      "type": "response",
+      "name": "get status command author",
+      "guid": "d6306541-5512-44da-93b2-b347566d164b",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "e09813cc-e34f-4333-bf8e-53c3ebe18aea"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f31cdfd5-4970-46bf-baaf-9760b6199b3c"
+        }
+      ],
+      "x": 1482,
+      "y": 859,
+      "rtype": "Variable",
+      "rsubtype": "Get Command Author",
+      "formdata": [
+        "statusca",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "status ca = bot dev?",
+      "guid": "e09813cc-e34f-4333-bf8e-53c3ebe18aea",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "44b8ff69-128a-4229-9700-45017ea08575"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "1d842c14-8565-48fa-b581-62d5c8d19b41"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d6306541-5512-44da-93b2-b347566d164b"
+        }
+      ],
+      "x": 1659,
+      "y": 823,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "statusca",
+        "equal to",
+        "529073180107735048"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get wanted status",
+      "guid": "44b8ff69-128a-4229-9700-45017ea08575",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5acc75fa-7bc5-4def-966b-1414e8bfceb5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e09813cc-e34f-4333-bf8e-53c3ebe18aea"
+        }
+      ],
+      "x": 1839,
+      "y": 788,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "wantedstatus",
+        "Text",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "not bot dev status error",
+      "guid": "1d842c14-8565-48fa-b581-62d5c8d19b41",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e09813cc-e34f-4333-bf8e-53c3ebe18aea"
+        }
+      ],
+      "x": 1840,
+      "y": 933,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "This command can only be used bot the bots maker!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "wanted status = online?",
+      "guid": "5acc75fa-7bc5-4def-966b-1414e8bfceb5",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "872fc2a0-b89b-4d09-ba2a-e12bd47e9e44"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "cd0f792a-9fd1-4b40-a8cb-a89ce5e037e5"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "44b8ff69-128a-4229-9700-45017ea08575"
+        }
+      ],
+      "x": 2015,
+      "y": 828,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "wantedstatus",
+        "equal to",
+        "online"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set status online",
+      "guid": "872fc2a0-b89b-4d09-ba2a-e12bd47e9e44",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "5acc75fa-7bc5-4def-966b-1414e8bfceb5"
+        }
+      ],
+      "x": 2195,
+      "y": 783,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Status",
+      "formdata": [
+        "Online"
+      ],
+      "formnames": [
+        "status"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "wanted status = idle?",
+      "guid": "cd0f792a-9fd1-4b40-a8cb-a89ce5e037e5",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "bd3cac97-213a-4e82-a620-1cb17203fb5d"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "6f88f84a-7086-41d8-ae12-f8985f69600e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "5acc75fa-7bc5-4def-966b-1414e8bfceb5"
+        }
+      ],
+      "x": 2368,
+      "y": 832,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "wantedstatus",
+        "equal to",
+        "idle"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set status idle",
+      "guid": "bd3cac97-213a-4e82-a620-1cb17203fb5d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cd0f792a-9fd1-4b40-a8cb-a89ce5e037e5"
+        }
+      ],
+      "x": 2541,
+      "y": 787,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Status",
+      "formdata": [
+        "Idle"
+      ],
+      "formnames": [
+        "status"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "wanted status = offline?",
+      "guid": "6f88f84a-7086-41d8-ae12-f8985f69600e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "db32e0bb-4d38-465f-a2ee-880e360c9b6d"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "9da46a40-17c1-49b5-ae40-8eb47489839e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cd0f792a-9fd1-4b40-a8cb-a89ce5e037e5"
+        }
+      ],
+      "x": 2012,
+      "y": 1072,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "wantedstatus",
+        "equal to",
+        "offline"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set status offline",
+      "guid": "db32e0bb-4d38-465f-a2ee-880e360c9b6d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6f88f84a-7086-41d8-ae12-f8985f69600e"
+        }
+      ],
+      "x": 2196,
+      "y": 1013,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Status",
+      "formdata": [
+        "Offline"
+      ],
+      "formnames": [
+        "status"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "wanted status = dnd?",
+      "guid": "9da46a40-17c1-49b5-ae40-8eb47489839e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "04943be3-3382-4bbd-887f-de74d8f88283"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6f88f84a-7086-41d8-ae12-f8985f69600e"
+        }
+      ],
+      "x": 2368,
+      "y": 1080,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "wantedstatus",
+        "equal to",
+        "dnd"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set status dnd",
+      "guid": "04943be3-3382-4bbd-887f-de74d8f88283",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "9da46a40-17c1-49b5-ae40-8eb47489839e"
+        }
+      ],
+      "x": 2546,
+      "y": 1096,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Status",
+      "formdata": [
+        "DnD"
+      ],
+      "formnames": [
+        "status"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "pfp",
+      "guid": "ac9a2c10-80b3-49de-999b-06e085174aa2",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "1214bf68-018d-4be0-aaa1-e2376c0db629"
+          ]
+        }
+      ],
+      "x": 1515,
+      "y": 1344
+    },
+    {
+      "type": "response",
+      "name": "get pfp ca",
+      "guid": "1214bf68-018d-4be0-aaa1-e2376c0db629",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "3024c899-a603-40e4-9bd3-1376b33bc65e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ac9a2c10-80b3-49de-999b-06e085174aa2"
+        }
+      ],
+      "x": 1517,
+      "y": 1417,
+      "rtype": "Variable",
+      "rsubtype": "Get Command Author",
+      "formdata": [
+        "pfpca",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "pfp ca = bot dev?",
+      "guid": "3024c899-a603-40e4-9bd3-1376b33bc65e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "41bb1604-6a30-4cbc-88de-4de9a30eb56e"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "59c2faad-c5c8-4746-8c6d-da3db50ba9d3"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1214bf68-018d-4be0-aaa1-e2376c0db629"
+        }
+      ],
+      "x": 1670,
+      "y": 1361,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "pfpca",
+        "equal to",
+        "529073180107735048"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get wanted pfp",
+      "guid": "41bb1604-6a30-4cbc-88de-4de9a30eb56e",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "05a64407-7336-4745-a2a5-72323e3d9403"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3024c899-a603-40e4-9bd3-1376b33bc65e"
+        }
+      ],
+      "x": 1824,
+      "y": 1361,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "wantedpfp",
+        "Text",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set bot pfp",
+      "guid": "05a64407-7336-4745-a2a5-72323e3d9403",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "5234453f-085a-4951-9b43-2b12dea516e0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "41bb1604-6a30-4cbc-88de-4de9a30eb56e"
+        }
+      ],
+      "x": 1978,
+      "y": 1359,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Avatar",
+      "formdata": [
+        "%%wantedpfp%%"
+      ],
+      "formnames": [
+        "avatar"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "pfp not bot dev error",
+      "guid": "59c2faad-c5c8-4746-8c6d-da3db50ba9d3",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3024c899-a603-40e4-9bd3-1376b33bc65e"
+        }
+      ],
+      "x": 1822,
+      "y": 1468,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "This command can only be used bot the bots maker!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "pfp set",
+      "guid": "5234453f-085a-4951-9b43-2b12dea516e0",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "05a64407-7336-4745-a2a5-72323e3d9403"
+        }
+      ],
+      "x": 2131,
+      "y": 1360,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Bot profile picture set to %%wantedpfp%%"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "minecoins",
+      "guid": "b0b0de0c-c4e8-46cf-a977-b9180a1a0983",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "e9547f3b-f662-4a37-a7e8-98700fd2ff0f"
+          ]
+        }
+      ],
+      "x": 128,
+      "y": 1753
+    },
+    {
+      "type": "response",
+      "name": "get minecoins ca",
+      "guid": "e9547f3b-f662-4a37-a7e8-98700fd2ff0f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "885d4333-64a2-46eb-ae49-f47b081c2a24"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b0b0de0c-c4e8-46cf-a977-b9180a1a0983"
+        }
+      ],
+      "x": 134,
+      "y": 1828,
+      "rtype": "Variable",
+      "rsubtype": "Get Command Author",
+      "formdata": [
+        "minecoinsca",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins ca = dev?",
+      "guid": "885d4333-64a2-46eb-ae49-f47b081c2a24",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "54b9cc3a-23db-4015-8340-137a5bd01d05"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "9a7690e7-2eb7-40fe-9299-579d65c1c70c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e9547f3b-f662-4a37-a7e8-98700fd2ff0f"
+        }
+      ],
+      "x": 292,
+      "y": 1796,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "minecoinsca",
+        "equal to",
+        "529073180107735048"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "no",
+      "guid": "9a7690e7-2eb7-40fe-9299-579d65c1c70c",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "885d4333-64a2-46eb-ae49-f47b081c2a24"
+        }
+      ],
+      "x": 456,
+      "y": 1859,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "Nice try"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "giveminecoins",
+      "guid": "c0eb4714-8742-4244-83a2-792cb6536d0b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3b1aa6d7-3832-44b2-8cb2-06d1dcf7da91"
+          ]
+        }
+      ],
+      "x": 1259,
+      "y": 1888,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "get wanted give user",
+      "guid": "3b1aa6d7-3832-44b2-8cb2-06d1dcf7da91",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "254cda90-2723-405e-b85e-bf1769821c07"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c0eb4714-8742-4244-83a2-792cb6536d0b"
+        }
+      ],
+      "x": 1259,
+      "y": 1962,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "wantedgiveuser",
+        "User"
+      ],
+      "formnames": [
+        "varname",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "get wanted give amount",
+      "guid": "254cda90-2723-405e-b85e-bf1769821c07",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "139acf4c-e9a0-455a-be0e-a6801c2ffd0c"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3b1aa6d7-3832-44b2-8cb2-06d1dcf7da91"
+        }
+      ],
+      "x": 1413,
+      "y": 1964,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "wantedgiveamount",
+        "Number",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins > give?",
+      "guid": "139acf4c-e9a0-455a-be0e-a6801c2ffd0c",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "d8a4a6ac-0c00-4da2-a528-1aecf2edf999"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "9e4214aa-bd63-43d7-ad90-bf3667ea75d6"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "254cda90-2723-405e-b85e-bf1769821c07"
+        }
+      ],
+      "x": 1265,
+      "y": 2096,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "greater than",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "minecoins = give?",
+      "guid": "9e4214aa-bd63-43d7-ad90-bf3667ea75d6",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "fe4333ca-edee-4409-8f1b-127843df4bee"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": [
+            "4ffbe2ad-384c-4bbc-9abd-33cabc5655c8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "139acf4c-e9a0-455a-be0e-a6801c2ffd0c"
+        }
+      ],
+      "x": 1262,
+      "y": 2257,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "$$CommandAuthor$$a",
+        "userminecoins",
+        "equal to",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "not enough minecoins error (give)",
+      "guid": "4ffbe2ad-384c-4bbc-9abd-33cabc5655c8",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "9e4214aa-bd63-43d7-ad90-bf3667ea75d6"
+        }
+      ],
+      "x": 1262,
+      "y": 2421,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You do not have enough minecoins!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add minecoins (give)",
+      "guid": "7f9663d3-677d-4412-aecd-f678c3edb597",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "96d8a787-ecfa-4809-bacd-10636489fe59"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d8a4a6ac-0c00-4da2-a528-1aecf2edf999"
+        }
+      ],
+      "x": 1567,
+      "y": 2092,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%wantedgiveuser%%",
+        "userminecoins",
+        "+",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "remove minecoins (give)",
+      "guid": "d8a4a6ac-0c00-4da2-a528-1aecf2edf999",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "7f9663d3-677d-4412-aecd-f678c3edb597"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "139acf4c-e9a0-455a-be0e-a6801c2ffd0c"
+        }
+      ],
+      "x": 1415,
+      "y": 2096,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "-",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "you gave minecoins",
+      "guid": "96d8a787-ecfa-4809-bacd-10636489fe59",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7f9663d3-677d-4412-aecd-f678c3edb597"
+        }
+      ],
+      "x": 1723,
+      "y": 2095,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You gave <@%%wantedgiveuser%%> %%wantedgiveamount%% minecoins!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "remove minecoins (give) 2",
+      "guid": "fe4333ca-edee-4409-8f1b-127843df4bee",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "55a7d3ef-f628-4303-9c4e-1802d439a449"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "9e4214aa-bd63-43d7-ad90-bf3667ea75d6"
+        }
+      ],
+      "x": 1417,
+      "y": 2257,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "-",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "give minecoins (give) 2",
+      "guid": "55a7d3ef-f628-4303-9c4e-1802d439a449",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "32e8bfc3-89a7-4720-a5b9-74c79b83ba88"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "fe4333ca-edee-4409-8f1b-127843df4bee"
+        }
+      ],
+      "x": 1571,
+      "y": 2282,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "$$CommandAuthor$$",
+        "userminecoins",
+        "+",
+        "%%wantedgiveamount%%"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "you gave minecoins 2",
+      "guid": "32e8bfc3-89a7-4720-a5b9-74c79b83ba88",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "55a7d3ef-f628-4303-9c4e-1802d439a449"
+        }
+      ],
+      "x": 1725,
+      "y": 2286,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "$$CommandChannel$$",
+        "You gave <@%%wantedgiveuser%%> %%wantedgiveamount%% minecoins!"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText"
+      ]
+    }
+  ]
+}

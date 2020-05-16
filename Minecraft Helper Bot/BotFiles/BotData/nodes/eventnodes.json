@@ -1,0 +1,268 @@
+{
+  "nodes": [
+    {
+      "type": "event",
+      "name": "User Joins Server",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "newuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 99,
+      "y": 100,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "Any Message",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888",
+      "variables": {
+        "user": "msguser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3b4cf20b-033c-4b97-810a-5a64a3065ad4"
+          ]
+        }
+      ],
+      "x": 101,
+      "y": 499,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Kicked",
+      "guid": "69ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "kickuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 99,
+      "y": 250,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Banned",
+      "guid": "77ebbc23-2003-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "banuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 100,
+      "y": 375,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "add 5 minecoins per msg",
+      "guid": "3b4cf20b-033c-4b97-810a-5a64a3065ad4",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "194c4474-b693-42af-9911-eb128c68f048"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888"
+        }
+      ],
+      "x": 268,
+      "y": 484,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%msguser%%",
+        "userminecoins",
+        "+",
+        "5"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "gen ran spawner num",
+      "guid": "194c4474-b693-42af-9911-eb128c68f048",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "84edcdf8-e868-4029-87dc-57b2f620d9a7"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "3b4cf20b-033c-4b97-810a-5a64a3065ad4"
+        }
+      ],
+      "x": 506,
+      "y": 484,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "spawnerrannum",
+        "1",
+        "1000"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "ran spawner num = 500?",
+      "guid": "84edcdf8-e868-4029-87dc-57b2f620d9a7",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "89152243-b285-452a-b540-56f5e897fb1d"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "194c4474-b693-42af-9911-eb128c68f048"
+        }
+      ],
+      "x": 693,
+      "y": 485,
+      "rtype": "Variable",
+      "rsubtype": "Check Variable Value",
+      "formdata": [
+        "spawnerrannum",
+        "equal to",
+        "500"
+      ],
+      "formnames": [
+        "varname",
+        "compare",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add spawner mobs",
+      "guid": "89152243-b285-452a-b540-56f5e897fb1d",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "55e3185f-83a7-4700-80af-7b052eb520a4"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "84edcdf8-e868-4029-87dc-57b2f620d9a7"
+        }
+      ],
+      "x": 874,
+      "y": 484,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "%%msguser%%",
+        "mobsowned",
+        "+",
+        "30"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "spawner found msg",
+      "guid": "55e3185f-83a7-4700-80af-7b052eb520a4",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "89152243-b285-452a-b540-56f5e897fb1d"
+        }
+      ],
+      "x": 1052,
+      "y": 496,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "$$DefaultChannel$$",
+        "FFEB0F",
+        "You found a spawner!",
+        "",
+        "MC Helper Bot",
+        "",
+        "",
+        "<@%%msguser%%>It's your lucky day! You found a mob spawner! You have recieved 30 mobs",
+        "",
+        "https://www.minecraftguides.org/blocks/mobspawner.gif",
+        "",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp"
+      ]
+    }
+  ]
+}

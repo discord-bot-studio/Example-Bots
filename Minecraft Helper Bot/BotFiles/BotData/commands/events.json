@@ -1,0 +1,91 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "add 5 minecoins per msg",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "%%msguser%%",
+          "field": "userminecoins",
+          "oper": "+",
+          "value": "5"
+        },
+        {
+          "name": "gen ran spawner num",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "spawnerrannum",
+          "min": "1",
+          "max": "1000"
+        },
+        {
+          "name": "ran spawner num = 500?",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "add spawner mobs",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "%%msguser%%",
+              "field": "mobsowned",
+              "oper": "+",
+              "value": "30"
+            },
+            {
+              "name": "spawner found msg",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "$$DefaultChannel$$",
+              "color": "FFEB0F",
+              "title": "You found a spawner!",
+              "url": "",
+              "authorname": "MC Helper Bot",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": "<@%%msguser%%>It's your lucky day! You found a mob spawner! You have recieved 30 mobs",
+              "thumbnail": "",
+              "image": "https://www.minecraftguides.org/blocks/mobspawner.gif",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@"
+            }
+          ],
+          "falseActions": [],
+          "varname": "spawnerrannum",
+          "compare": "equal to",
+          "value": "500"
+        }
+      ],
+      "var": {
+        "user": "msguser"
+      }
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    }
+  ]
+}

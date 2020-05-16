@@ -1,0 +1,843 @@
+{
+  "command": [
+    {
+      "name": "mobinfo",
+      "perms": [],
+      "actions": [
+        {
+          "name": "set wanted mob var",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "mobinfowantedmob",
+          "vartype": "Text",
+          "param": "0"
+        },
+        {
+          "name": "find wanted mob",
+          "category": "User Data",
+          "type": "Set User Data",
+          "user": "$$CommandAuthor$$",
+          "field": "mobinfowantedmob",
+          "fieldvalue": "%%mobinfowantedmob%%"
+        },
+        {
+          "name": "get mobinfo row",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "send mobinfo",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Health Points",
+                  "value": "%%mobinforow[Health Points]%%",
+                  "inline": "false"
+                },
+                {
+                  "name": "Attack Strength",
+                  "value": "%%mobinforow[Attack Strength]%%",
+                  "inline": "false"
+                },
+                {
+                  "name": "Behavior",
+                  "value": "%%mobinforow[Behavior]%%",
+                  "inline": "false"
+                },
+                {
+                  "name": "Size",
+                  "value": "%%mobinforow[Size]%%",
+                  "inline": "false"
+                },
+                {
+                  "name": "Source",
+                  "value": "https://minecraft.gamepedia.com/Minecraft_Wiki",
+                  "inline": "false"
+                }
+              ],
+              "channelname": "$$CommandChannel$$",
+              "color": "49B000",
+              "title": "%%mobinfowantedmob%% Info",
+              "url": "",
+              "authorname": "MC Helper Bot",
+              "authorimageurl": "https://i.imgur.com/Ecp2bcN.png",
+              "authorlink": "",
+              "description": "%%mobinforow[Description]%%",
+              "thumbnail": "%%mobinforow[Image]%%",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "mobinfo list",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Passive",
+                  "value": "bat, cat, chicken, cod, cow, donkey, fox, horse, mooshroom, mule, ocelot, parrot, pig, pufferfish, rabbit, salmon, sheep, skeleton horse, snow golem, squid, tropical fish, turtle, villager, wandering trader",
+                  "inline": "false"
+                },
+                {
+                  "name": "Neutral",
+                  "value": "bee, dolphin, iron golem, llama, panda, polar bear, wolf, enderman, spider, zombie pigman",
+                  "inline": "false"
+                },
+                {
+                  "name": "Hostile",
+                  "value": "blaze, creeper, drowned, elder guardian, endermite, evoker, ghast, guardian, husk, magma cube, phantom, pillager, ravager, shulker, silver fish, skeleton, slime, stray, vex, vindicator, witch, wither skeleton, zombie",
+                  "inline": "false"
+                },
+                {
+                  "name": "Upcoming Mobs",
+                  "value": "hoglin, piglin, strider, zoglin, zombified piglin",
+                  "inline": "false"
+                },
+                {
+                  "name": "Mobinfo Source",
+                  "value": "https://minecraft.gamepedia.com/Mob",
+                  "inline": "false"
+                }
+              ],
+              "channelname": "$$CommandChannel$$",
+              "color": "49B000",
+              "title": "Mobinfo List",
+              "url": "",
+              "authorname": "MC Helper Bot",
+              "authorimageurl": "https://i.imgur.com/Ecp2bcN.png",
+              "authorlink": "",
+              "description": "List of mobs that you can get information about",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@"
+            }
+          ],
+          "selectedsheet": "MC Helper Bot Mobinfo .csv",
+          "colheader": "Mob",
+          "colval": "%%mobinfowantedmob%%",
+          "rowvariable": "mobinforow"
+        }
+      ]
+    },
+    {
+      "name": "setgame",
+      "perms": [],
+      "actions": [
+        {
+          "name": "get setgame command author",
+          "category": "Variable",
+          "type": "Get Command Author",
+          "varname": "setgamecommandauthor",
+          "vartype": "User"
+        },
+        {
+          "name": "store setgame command author",
+          "category": "User Data",
+          "type": "Set User Data",
+          "user": "$$CommandAuthor$$",
+          "field": "setgamecommandauthor",
+          "fieldvalue": "%%setgamecommandauthor%%"
+        },
+        {
+          "name": "check if command author = dev",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "store game",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "setgamegame",
+              "vartype": "Text",
+              "param": "0"
+            },
+            {
+              "name": "setbotgame",
+              "category": "Bot Action",
+              "type": "Set Bot Game",
+              "game": "%%setgamegame%%"
+            },
+            {
+              "name": "botgame set",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "Successfully set game to %%setgamegame%%"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "not dev error",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "This command can only be used bot the bots maker!"
+            }
+          ],
+          "user": "$$CommandAuthor$$",
+          "field": "setgamecommandauthor",
+          "compare": "equal to",
+          "value": "529073180107735048"
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "perms": [],
+      "actions": [
+        {
+          "name": "store help var",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "helporeconomyhelp",
+          "vartype": "Text",
+          "param": "0"
+        },
+        {
+          "name": "check help var",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "economy help",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Economy Commands",
+                  "value": "-balance\n-mine\n-purchase (cost 5000 minecoins)\n-giveminecoins [AMOUNT] [USER]",
+                  "inline": "false"
+                }
+              ],
+              "channelname": "$$CommandChannel$$",
+              "color": "FFE91F",
+              "title": "Economy Help",
+              "url": "",
+              "authorname": "MC Helper Bot",
+              "authorimageurl": "https://i.imgur.com/Ecp2bcN.png",
+              "authorlink": "",
+              "description": "Minecraft helper bot has an economy feature!\nWith the economy feature users can mine for money, and purchase mobs. The goal is to collect as many mobs as possible. If you want to add extra value to collecting mobs you can create special roles for people who have collected a certain amount of mobs! You can earn minecoins by either using mc!mine to mine a random number of minecoins you can earn 75-250 minecoins each time you mine. You can also earn minecoins just be being active! You earn 5 minecoins per message. Every message you send there is a 1 in 1000 chance of a mob spawner spawning, if you encounter a mob spawner you will be rewarded 30 mobs!",
+              "thumbnail": "https://static.planetminecraft.com/files/resource_media/screenshot/12545965-pack.png",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "help msg",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "MC Commands",
+                  "value": "-gamepedia\n-mobinfo [MOBNAME] (do mc!mobinfo for a list of \n mobs)\n-randomseed",
+                  "inline": "false"
+                },
+                {
+                  "name": "Other Commands",
+                  "value": "-invite",
+                  "inline": "false"
+                }
+              ],
+              "channelname": "$$CommandChannel$$",
+              "color": "49B000",
+              "title": "Help",
+              "url": "",
+              "authorname": "MC Helper Bot",
+              "authorimageurl": "https://i.imgur.com/Ecp2bcN.png",
+              "authorlink": "",
+              "description": "MC Helper Bot is a bot is a bot made to help out with Minecraft\n\nMC Helper Bot also has an economy feature! do \"mc!help economy\" (without quotes) for help with setting up the economy.",
+              "thumbnail": "https://i.imgur.com/Ecp2bcN.png",
+              "image": "",
+              "footer": "Commands sorted A-Z",
+              "timestamp": "BOOL_TRUE@@"
+            }
+          ],
+          "varname": "helporeconomyhelp",
+          "compare": "equal to",
+          "value": "economy"
+        }
+      ]
+    },
+    {
+      "name": "invite",
+      "actions": [
+        {
+          "name": "invite msg",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "$$CommandChannel$$",
+          "messagetext": "Want to invite MC Helper Bot in your server? Here is an invite link: https://discordapp.com/api/oauth2/authorize?client_id=699771063642619924&permissions=8&scope=bot"
+        }
+      ]
+    },
+    {
+      "name": "randomseed",
+      "perms": [],
+      "actions": [
+        {
+          "name": "generate number 1",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "1",
+          "min": "100000000000000",
+          "max": "999999999999999"
+        },
+        {
+          "name": "send rand seed",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "$$CommandChannel$$",
+          "messagetext": "%%1%%"
+        }
+      ]
+    },
+    {
+      "name": "gamepedia",
+      "actions": [
+        {
+          "name": "send gamepedia link",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "$$CommandChannel$$",
+          "messagetext": "Minecraft Gamepedia: https://minecraft.gamepedia.com"
+        }
+      ]
+    },
+    {
+      "name": "mine",
+      "actions": [
+        {
+          "name": "gen minecoins made",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "randminecoins",
+          "min": "75",
+          "max": "250"
+        },
+        {
+          "name": "add minecoins",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "$$CommandAuthor$$",
+          "field": "userminecoins",
+          "oper": "+",
+          "value": "%%randminecoins%%"
+        },
+        {
+          "name": "mine msg",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "$$CommandChannel$$",
+          "messagetext": "You went mining and sold the recources you found. You earned %%randminecoins%% minecoins"
+        }
+      ]
+    },
+    {
+      "name": "balance",
+      "actions": [
+        {
+          "name": "get minecoin balance",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "$$CommandAuthor$$",
+          "field": "userminecoins",
+          "varname": "minecoinbalance",
+          "vartype": "User"
+        },
+        {
+          "name": "get mob balance",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "$$CommandAuthor$$",
+          "field": "mobsowned",
+          "varname": "mobbalance",
+          "vartype": "User"
+        },
+        {
+          "name": "balance msg",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "$$CommandChannel$$",
+          "messagetext": "You have %%minecoinbalance%% minecoin(s) and %%mobbalance%% mob(s)."
+        }
+      ]
+    },
+    {
+      "name": "purchase",
+      "perms": [],
+      "actions": [
+        {
+          "name": "minecoins > purchase price?",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "remove minecoins",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "$$CommandAuthor$$",
+              "field": "userminecoins",
+              "oper": "-",
+              "value": "5000"
+            },
+            {
+              "name": "get rand mob",
+              "category": "Variable",
+              "type": "Generate Random Number",
+              "varname": "randmobnum",
+              "min": "1",
+              "max": "61"
+            },
+            {
+              "name": "get ran mob spread",
+              "category": "Spreadsheet",
+              "type": "Get Row",
+              "trueActions": [
+                {
+                  "name": "mob purchased",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "$$CommandChannel$$",
+                  "messagetext": "You got a %%randmobspread[Mob]%%!"
+                },
+                {
+                  "name": "add mob to mob count",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "$$CommandAuthor$$",
+                  "field": "mobsowned",
+                  "oper": "+",
+                  "value": "1"
+                }
+              ],
+              "falseActions": [
+                {
+                  "name": "purchase failed",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "$$CommandChannel$$",
+                  "messagetext": "An unkown error has occured your 5000 minecoins have been returned."
+                },
+                {
+                  "name": "return minecoins",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "$$CommandAuthor$$",
+                  "field": "userminecoins",
+                  "oper": "+",
+                  "value": "5000"
+                }
+              ],
+              "selectedsheet": "Purchasable Mobs - Sheet1.csv",
+              "colheader": "Mob Number",
+              "colval": "%%randmobnum%%",
+              "rowvariable": "randmobspread"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "not enough minecoins",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "You don't have enough minecoins! To purchase a mob it costs 5000 minecoins."
+            }
+          ],
+          "user": "$$CommandAuthor$$",
+          "field": "userminecoins",
+          "compare": "greater than",
+          "value": "4999"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "actions": [
+        {
+          "name": "get status command author",
+          "category": "Variable",
+          "type": "Get Command Author",
+          "varname": "statusca",
+          "vartype": "User"
+        },
+        {
+          "name": "status ca = bot dev?",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "get wanted status",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "wantedstatus",
+              "vartype": "Text",
+              "param": "0"
+            },
+            {
+              "name": "wanted status = online?",
+              "category": "Variable",
+              "type": "Check Variable Value",
+              "trueActions": [
+                {
+                  "name": "set status online",
+                  "category": "Bot Action",
+                  "type": "Set Status",
+                  "status": "Online"
+                }
+              ],
+              "falseActions": [
+                {
+                  "name": "wanted status = idle?",
+                  "category": "Variable",
+                  "type": "Check Variable Value",
+                  "trueActions": [
+                    {
+                      "name": "set status idle",
+                      "category": "Bot Action",
+                      "type": "Set Status",
+                      "status": "Idle"
+                    }
+                  ],
+                  "falseActions": [
+                    {
+                      "name": "wanted status = offline?",
+                      "category": "Variable",
+                      "type": "Check Variable Value",
+                      "trueActions": [
+                        {
+                          "name": "set status offline",
+                          "category": "Bot Action",
+                          "type": "Set Status",
+                          "status": "Offline"
+                        }
+                      ],
+                      "falseActions": [
+                        {
+                          "name": "wanted status = dnd?",
+                          "category": "Variable",
+                          "type": "Check Variable Value",
+                          "trueActions": [
+                            {
+                              "name": "set status dnd",
+                              "category": "Bot Action",
+                              "type": "Set Status",
+                              "status": "DnD"
+                            }
+                          ],
+                          "falseActions": [],
+                          "varname": "wantedstatus",
+                          "compare": "equal to",
+                          "value": "dnd"
+                        }
+                      ],
+                      "varname": "wantedstatus",
+                      "compare": "equal to",
+                      "value": "offline"
+                    }
+                  ],
+                  "varname": "wantedstatus",
+                  "compare": "equal to",
+                  "value": "idle"
+                }
+              ],
+              "varname": "wantedstatus",
+              "compare": "equal to",
+              "value": "online"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "not bot dev status error",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "This command can only be used bot the bots maker!"
+            }
+          ],
+          "varname": "statusca",
+          "compare": "equal to",
+          "value": "529073180107735048"
+        }
+      ]
+    },
+    {
+      "name": "pfp",
+      "actions": [
+        {
+          "name": "get pfp ca",
+          "category": "Variable",
+          "type": "Get Command Author",
+          "varname": "pfpca",
+          "vartype": "User"
+        },
+        {
+          "name": "pfp ca = bot dev?",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "get wanted pfp",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "wantedpfp",
+              "vartype": "Text",
+              "param": "0"
+            },
+            {
+              "name": "set bot pfp",
+              "category": "Bot Action",
+              "type": "Set Avatar",
+              "avatar": "%%wantedpfp%%"
+            },
+            {
+              "name": "pfp set",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "Bot profile picture set to %%wantedpfp%%"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "pfp not bot dev error",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "This command can only be used bot the bots maker!"
+            }
+          ],
+          "varname": "pfpca",
+          "compare": "equal to",
+          "value": "529073180107735048"
+        }
+      ]
+    },
+    {
+      "name": "minecoins",
+      "actions": [
+        {
+          "name": "get minecoins ca",
+          "category": "Variable",
+          "type": "Get Command Author",
+          "varname": "minecoinsca",
+          "vartype": "User"
+        },
+        {
+          "name": "minecoins ca = dev?",
+          "category": "Variable",
+          "type": "Check Variable Value",
+          "trueActions": [
+            {
+              "name": "add or remove",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "minecoinsaddorremove",
+              "vartype": "Text",
+              "param": "1"
+            },
+            {
+              "name": "get amount",
+              "category": "Variable",
+              "type": "Store Value in Variable",
+              "varname": "numberofminecoins",
+              "vartype": "Number",
+              "param": "2"
+            },
+            {
+              "name": "get minecoins user",
+              "category": "Variable",
+              "type": "Get Mentioned User",
+              "varname": "addremoveminecoinsuser",
+              "vartype": "User"
+            },
+            {
+              "name": "minecoins add?",
+              "category": "Variable",
+              "type": "Check Variable Value",
+              "trueActions": [
+                {
+                  "name": "add mineoins to user",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "%%addremoveminecoinsuser%%",
+                  "field": "userminecoins",
+                  "oper": "+",
+                  "value": "%%numberofminecoins%%"
+                },
+                {
+                  "name": "minecoins givin",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "$$CommandChannel$$",
+                  "messagetext": "Succesfully gave <@%%addremoveminecoinsuser%%> %%numberofminecoins%% minecoins."
+                }
+              ],
+              "falseActions": [
+                {
+                  "name": "minecoins remove?",
+                  "category": "Variable",
+                  "type": "Check Variable Value",
+                  "trueActions": [
+                    {
+                      "name": "remove minecoins2",
+                      "category": "User Data",
+                      "type": "Edit User Data",
+                      "user": "%%addremoveminecoinsuser%%",
+                      "field": "userminecoins",
+                      "oper": "-",
+                      "value": "%%numberofminecoins%%"
+                    },
+                    {
+                      "name": "minecoins removed",
+                      "category": "Message",
+                      "type": "Send Message",
+                      "channelname": "$$CommandChannel$$",
+                      "messagetext": "Succesfully removed %%numberofminecoins%% from <@%%addremoveminecoinsuser%%> ."
+                    }
+                  ],
+                  "falseActions": [
+                    {
+                      "name": "edit minecoins failed",
+                      "category": "Message",
+                      "type": "Send Message",
+                      "channelname": "$$CommandChannel$$",
+                      "messagetext": "Failed to edit minecoins. Make sure you are using add or remove after mc!minecoins."
+                    }
+                  ],
+                  "varname": "minecoinsaddorremove",
+                  "compare": "equal to",
+                  "value": "remove"
+                }
+              ],
+              "varname": "minecoinsaddorremove",
+              "compare": "equal to",
+              "value": "add"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "no",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "Nice try"
+            }
+          ],
+          "varname": "minecoinsca",
+          "compare": "equal to",
+          "value": "529073180107735048"
+        }
+      ]
+    },
+    {
+      "name": "giveminecoins",
+      "perms": [],
+      "actions": [
+        {
+          "name": "get wanted give user",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "varname": "wantedgiveuser",
+          "vartype": "User"
+        },
+        {
+          "name": "get wanted give amount",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "wantedgiveamount",
+          "vartype": "Number",
+          "param": "1"
+        },
+        {
+          "name": "minecoins > give?",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "remove minecoins (give)",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "$$CommandAuthor$$",
+              "field": "userminecoins",
+              "oper": "-",
+              "value": "%%wantedgiveamount%%"
+            },
+            {
+              "name": "add minecoins (give)",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "%%wantedgiveuser%%",
+              "field": "userminecoins",
+              "oper": "+",
+              "value": "%%wantedgiveamount%%"
+            },
+            {
+              "name": "you gave minecoins",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "$$CommandChannel$$",
+              "messagetext": "You gave <@%%wantedgiveuser%%> %%wantedgiveamount%% minecoins!"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "minecoins = give?",
+              "category": "User Data",
+              "type": "Check User Data",
+              "trueActions": [
+                {
+                  "name": "remove minecoins (give) 2",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "$$CommandAuthor$$",
+                  "field": "userminecoins",
+                  "oper": "-",
+                  "value": "%%wantedgiveamount%%"
+                },
+                {
+                  "name": "give minecoins (give) 2",
+                  "category": "User Data",
+                  "type": "Edit User Data",
+                  "user": "$$CommandAuthor$$",
+                  "field": "userminecoins",
+                  "oper": "+",
+                  "value": "%%wantedgiveamount%%"
+                },
+                {
+                  "name": "you gave minecoins 2",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "$$CommandChannel$$",
+                  "messagetext": "You gave <@%%wantedgiveuser%%> %%wantedgiveamount%% minecoins!"
+                }
+              ],
+              "falseActions": [
+                {
+                  "name": "not enough minecoins error (give)",
+                  "category": "Message",
+                  "type": "Send Message",
+                  "channelname": "$$CommandChannel$$",
+                  "messagetext": "You do not have enough minecoins!"
+                }
+              ],
+              "user": "$$CommandAuthor$$a",
+              "field": "userminecoins",
+              "compare": "equal to",
+              "value": "%%wantedgiveamount%%"
+            }
+          ],
+          "user": "$$CommandAuthor$$",
+          "field": "userminecoins",
+          "compare": "greater than",
+          "value": "%%wantedgiveamount%%"
+        }
+      ]
+    }
+  ]
+}
